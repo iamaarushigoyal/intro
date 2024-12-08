@@ -2,8 +2,8 @@
   "/_not-found": "/_not-found",
   "/page": "/",
   "/about/page": "/about",
-  "/blog/page": "/blog",
   "/contact/page": "/contact",
   "/gallery/page": "/gallery",
-  "/portfolio/page": "/portfolio"
+  "/portfolio/page": "/portfolio",
+  "/blog/page": "/blog"
 }

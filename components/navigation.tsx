@@ -1,11 +1,9 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Logo } from '@/components/logo';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,13 +17,28 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80; // Height of the fixed navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/gallery', label: 'Gallery' },
-    { href: '/portfolio', label: 'Portfolio' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contact', label: 'Contact' },
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'portfolio', label: 'Portfolio' },
+    { id: 'blog', label: 'Blog' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
@@ -37,18 +50,23 @@ export function Navigation() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          <Logo />
+          <button
+            onClick={() => scrollToSection('home')}
+            className="text-xl font-bold"
+          >
+            Portfolio
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
                 className="text-sm hover:text-primary transition-colors"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -67,14 +85,13 @@ export function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="block py-2 text-sm hover:text-primary transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)}
+                className="block w-full text-left py-2 text-sm hover:text-primary transition-colors"
               >
                 {link.label}
-              </Link>
+              </button>
             ))}
           </div>
         )}
