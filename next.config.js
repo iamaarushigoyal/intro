@@ -5,6 +5,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  basePath: '/intro',
+  assetPrefix: '/intro/',
 };
 
 module.exports = nextConfig;
