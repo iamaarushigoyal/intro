@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Code2, Compass } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const explorerImages = [
   'https://images.unsplash.com/photo-1488085061387-422e29b40080',
@@ -19,106 +20,74 @@ const developerImages = [
 
 export function SplitHero() {
   const [hoveredSide, setHoveredSide] = useState<'explorer' | 'developer' | null>(null);
-  const [explorerIndex, setExplorerIndex] = useState(0);
-  const [developerIndex, setDeveloperIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setExplorerIndex((prev) => (prev + 1) % explorerImages.length);
-      setDeveloperIndex((prev) => (prev + 1) % developerImages.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
-    <section id="home" className="h-screen flex">
-      <motion.div
-        className="relative w-1/2 flex items-center justify-center cursor-pointer overflow-hidden"
-        onHoverStart={() => setHoveredSide('explorer')}
-        onHoverEnd={() => setHoveredSide(null)}
-        animate={{
-          width: hoveredSide === 'developer' ? '30%' : '50%',
-        }}
-        transition={{ duration: 0.5 }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={explorerIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0"
-          >
+    <div className="h-screen flex">
+      <Link href="#explorer" className="w-1/2 h-full">
+        <motion.div
+          className="relative w-full h-full flex items-center justify-center cursor-pointer overflow-hidden"
+          onHoverStart={() => setHoveredSide('explorer')}
+          onHoverEnd={() => setHoveredSide(null)}
+        >
+          <div className="absolute inset-0">
             <Image
-              src={explorerImages[explorerIndex]}
+              src={explorerImages[0]}
               alt="Explorer"
               fill
               className="object-cover"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/90 to-blue-900/90" />
-          </motion.div>
-        </AnimatePresence>
-        
-        <div className="relative z-10 text-center">
-          <Compass className="w-16 h-16 mx-auto mb-4 text-primary" />
-          <h2 className="text-4xl font-bold mb-4">Explorer</h2>
-          {hoveredSide === 'explorer' && (
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="max-w-md mx-auto text-lg"
-            >
-              Passionate about art, travel, and discovering new perspectives
-            </motion.p>
-          )}
-        </div>
-      </motion.div>
+          </div>
+          
+          <div className="relative z-10 text-center">
+            <Compass className="w-16 h-16 mx-auto mb-4 text-[var(--neon-blue)]" />
+            <h2 className="text-4xl font-bold mb-4 neon-text">Explorer</h2>
+            {hoveredSide === 'explorer' && (
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="max-w-md mx-auto text-lg"
+              >
+                Passionate about art, travel, and discovering new perspectives
+              </motion.p>
+            )}
+          </div>
+        </motion.div>
+      </Link>
 
-      <motion.div
-        className="relative w-1/2 flex items-center justify-center cursor-pointer overflow-hidden"
-        onHoverStart={() => setHoveredSide('developer')}
-        onHoverEnd={() => setHoveredSide(null)}
-        animate={{
-          width: hoveredSide === 'explorer' ? '30%' : '50%',
-        }}
-        transition={{ duration: 0.5 }}
-      >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={developerIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            className="absolute inset-0"
-          >
+      <Link href="#developer" className="w-1/2 h-full">
+        <motion.div
+          className="relative w-full h-full flex items-center justify-center cursor-pointer overflow-hidden"
+          onHoverStart={() => setHoveredSide('developer')}
+          onHoverEnd={() => setHoveredSide(null)}
+        >
+          <div className="absolute inset-0">
             <Image
-              src={developerImages[developerIndex]}
+              src={developerImages[0]}
               alt="Developer"
               fill
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-bl from-secondary/80 to-blue-900/90" />
-          </motion.div>
-        </AnimatePresence>
+            <div className="absolute inset-0 bg-gradient-to-bl from-[var(--neon-purple)]/80 to-blue-900/90" />
+          </div>
 
-        <div className="relative z-10 text-center">
-          <Code2 className="w-16 h-16 mx-auto mb-4 text-secondary" />
-          <h2 className="text-4xl font-bold mb-4">Developer</h2>
-          {hoveredSide === 'developer' && (
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="max-w-md mx-auto text-lg"
-            >
-              Crafting digital experiences through code and innovation
-            </motion.p>
-          )}
-        </div>
-      </motion.div>
-    </section>
+          <div className="relative z-10 text-center">
+            <Code2 className="w-16 h-16 mx-auto mb-4 text-[var(--neon-pink)]" />
+            <h2 className="text-4xl font-bold mb-4 neon-text">Developer</h2>
+            {hoveredSide === 'developer' && (
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="max-w-md mx-auto text-lg"
+              >
+                Crafting digital experiences through code and innovation
+              </motion.p>
+            )}
+          </div>
+        </motion.div>
+      </Link>
+    </div>
   );
 }

@@ -54,7 +54,13 @@ export function Navigation() {
             onClick={() => scrollToSection('home')}
             className="text-xl font-bold"
           >
-            Portfolio
+            <img 
+              src="https://static.vecteezy.com/system/resources/previews/010/517/872/non_2x/letter-ag-logo-design-ag-logo-icon-pink-color-free-template-free-vector.jpg"
+              height={"30px"}
+              width={"30px"}
+              style={{ display: 'inline', borderRadius: '50%', marginRight: "10px" }}
+            />
+            Aarushi Goyal
           </button>
 
           {/* Desktop Navigation */}

@@ -11,13 +11,13 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    url: 'https://linkedin.com/in/aarushi-goyal',
+    url: 'https://linkedin.com/in/iamaarushigoyal',
     color: 'text-[#0077B5] hover:text-[#0077B5]/80'
   },
   {
     name: 'GitHub',
     icon: Github,
-    url: 'https://github.com/aarushi-goyal',
+    url: 'https://github.com/iamaarushigoyal',
     color: 'text-white hover:text-white/80'
   },
   {
@@ -29,7 +29,7 @@ const socialLinks = [
   {
     name: 'Instagram',
     icon: Instagram,
-    url: 'https://instagram.com/aarushi.goyal',
+    url: 'https://instagram.com/iamaarushigoyal',
     color: 'text-[#E4405F] hover:text-[#E4405F]/80'
   }
 ];
@@ -103,7 +103,7 @@ export default function Contact() {
             <Card className="hover:neon-box transition-all duration-300">
               <CardContent className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Location</h2>
-                <p className="text-muted-foreground">Based in India</p>
+                <p className="text-muted-foreground">Bengaluru, India</p>
                 <p className="text-muted-foreground">Available for remote work worldwide</p>
               </CardContent>
             </Card>

@@ -1,25 +1,31 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Navigation } from '@/components/navigation';
-import StyledComponentsRegistry from '@/lib/registry';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Explorer & Developer',
-  description: 'Personal portfolio showcasing development and exploration',
+  title: "Portfolio | Explorer & Developer",
+  description: "Personal portfolio showcasing development and creative work",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-        <StyledComponentsRegistry>
-          <Navigation />
+      <body className={inter.className}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
-        </StyledComponentsRegistry>
+        </ThemeProvider>
       </body>
     </html>
   );

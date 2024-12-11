@@ -9,26 +9,32 @@ import { useInView } from 'react-intersection-observer';
 const projects = {
   frontend: [
     {
-      title: "E-commerce Platform",
-      description: "A modern e-commerce platform built with Next.js and Tailwind CSS",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Redux"],
-      link: "#"
+      title: "Job Seeker Platform",
+      description: "A modern job-seeker platform built with Reactjs and Nodejs",
+      image: "https://longlist.io/_next/image?url=https%3A%2F%2Fcdn.longlist.io%2Fjob_seeker_meaning_1b0cdadd05.webp&w=1200&q=75",
+      technologies: ["React.js", "TypeScript", "Node.js", "Redux"],
+      link: "https://www.hirist.com"
     },
     {
-      title: "Portfolio Website",
-      description: "Personal portfolio website with dark mode and animations",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
-      technologies: ["React", "Framer Motion", "Tailwind CSS"],
-      link: "#"
+      title: `Student's Solution Portal`,
+      description: "A platform for students to get answers from certified tutors via chat and online sessions.",
+      image: "https://a.storyblok.com/f/192322/5030x3353/e661010531/1-we-match-every-student.jpg/m/1024x0",
+      technologies: ["React", "Node.js", "Tailwind CSS"],
+      link: "https://www.gostudent.org/"
+    },
+    {
+      title: "Immersive Learning Experience",
+      description: "Developed an AR/VR learning tool with 3D models using Sketchfab APIs for interactive education",
+      image: "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/pages/download/c467ac970d550e5f9c62973223b7f4cb-v2.jpg",
+      technologies: ["React.js", "SketchFab APIs", "Node.js"],
     }
   ],
   uiux: [
     {
-      title: "Mobile Banking App",
-      description: "UX/UI design for a modern banking application",
+      title: "Price Prediction for AirBNB",
+      description: "Analyzed Airbnb data to identify pricing factors, customer preferences, and investment strategies using analytics.",
       image: "https://images.unsplash.com/photo-1563986768609-322da13575f3",
-      technologies: ["Figma", "Adobe XD", "Prototyping"],
+      technologies: ["Data Science", "Data Analysis", "Machine Learning", "AI"],
       link: "#"
     },
     {
@@ -60,8 +66,8 @@ export function PortfolioSection() {
 
         <Tabs defaultValue="frontend" className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-            <TabsTrigger value="frontend">Frontend Dev</TabsTrigger>
-            <TabsTrigger value="uiux">UI/UX Design</TabsTrigger>
+            <TabsTrigger value="frontend">FullStack Development</TabsTrigger>
+            <TabsTrigger value="uiux">AI/ML</TabsTrigger>
           </TabsList>
 
           <div ref={ref}>

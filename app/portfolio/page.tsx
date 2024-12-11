@@ -54,8 +54,8 @@ export default function Portfolio() {
 
         <Tabs defaultValue="frontend" className="w-full">
           <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 mb-12">
-            <TabsTrigger value="frontend">Frontend Dev</TabsTrigger>
-            <TabsTrigger value="uiux">UI/UX Design</TabsTrigger>
+            <TabsTrigger value="frontend">FullStack Development</TabsTrigger>
+            <TabsTrigger value="uiux">AI</TabsTrigger>
           </TabsList>
 
           {Object.entries(projects).map(([category, items]) => (

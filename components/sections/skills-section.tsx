@@ -5,18 +5,17 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
 
 const skills = [
-  { name: 'Python', level: 90, color: '#3776AB' },
   { name: 'JavaScript', level: 95, color: '#F7DF1E' },
+  { name: 'React', level: 95, color: '#61DAFB' },
+  { name: 'Next.js', level: 90, color: '#005020' },
   { name: 'Node.js', level: 85, color: '#339933' },
-  { name: 'React', level: 92, color: '#61DAFB' },
-  { name: 'Next.js', level: 88, color: '#000000' },
-  { name: 'Redux', level: 80, color: '#764ABC' },
+  { name: 'Redux', level: 85, color: '#764ABC' },
+  { name: 'Python', level: 80, color: '#3776AB' },
+  { name: 'GraphQL', level: 80, color: '#E10098' },
+  { name: 'MongoDB', level: 78, color: '#671848' },
   { name: 'Docker', level: 75, color: '#2496ED' },
-  { name: 'Java', level: 82, color: '#007396' },
-  { name: 'MySQL', level: 85, color: '#4479A1' },
-  { name: 'MongoDB', level: 78, color: '#47A248' },
+  { name: 'MySQL', level: 75, color: '#4479A1' },
   { name: 'AWS', level: 70, color: '#FF9900' },
-  { name: 'GraphQL', level: 75, color: '#E10098' }
 ];
 
 export function SkillsSection() {
